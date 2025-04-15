@@ -1,0 +1,21 @@
+extends layout
+
+block content
+  h1 Projects Admin
+  form(method='POST' action='/admin/projects')
+    label Title:
+    input(type='text' name='title' required)
+    label Description:
+    textarea(name='description' required)
+    label Technologies:
+    input(type='text' name='technologies' required)
+    label GitHub Link:
+    input(type='text' name='githubLink')
+    label Live Link:
+    input(type='text' name='liveLink')
+    button(type='submit') Add Project
+
+  h2 Projects List
+  ul
+    each project in projects
+      li= project.title

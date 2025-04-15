@@ -1,0 +1,36 @@
+extends layout
+
+block content
+  h1 Welcome to My Portfolio
+  p This is my portfolio website. Here you can view my projects and work experience.
+
+  h2 My Projects
+  if projects.length > 0
+    ul
+      each project in projects
+        li
+          h3= project.title
+          p= project.description
+          p Technologies: #{project.technologies.join(', ')}
+          if project.githubLink
+            a(href=project.githubLink target="_blank") GitHub
+          if project.liveLink
+            a(href=project.liveLink target="_blank") Live Demo
+  else
+    p No projects found.
+
+  h2 My Work Experience
+  if workExperience.length > 0
+    ul
+      each experience in workExperience
+        li
+          h3= experience.company
+          p Role: #{experience.role}
+          p Duration: #{experience.duration}
+          p Description: #{experience.description}
+  else
+    p No work experience found.
+
+  a(href="/admin/projects") Go to Projects Admin
+  br
+  a(href="/admin/work-experience") Go to Work Experience Admin

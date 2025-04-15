@@ -1,0 +1,12 @@
+extends ../layout.pug
+
+block content
+  h2 Add Content
+  form(action="/admin/add-content", method="POST")
+    label(for="title") Title:
+    input(type="text", name="title", required)
+    label(for="description") Description:
+    textarea(name="description", required)
+    label(for="imageUrl") Image URL:
+    input(type="text", name="imageUrl", required)
+    button(type="submit") Add Content
